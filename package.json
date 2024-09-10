@@ -1,0 +1,31 @@
+{
+    "name": "mst-triumph-tools",
+    "version": "1.0.0",
+    "description": "Librairie d'outils pour le projet Triumph",
+    "main": "dist/index.js",
+    "scripts": {
+      "build": "tsc",
+      "test": "jest"
+    },
+    "dependencies": {
+      "dotenv": "^10.0.0",
+      "fs-extra": "^10.0.0"
+    },
+    "devDependencies": {
+      "typescript": "^4.0.0",
+      "@types/node": "^14.0.0",
+      "jest": "^29.7.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/<ton-utilisateur>/<nom-repo>.git"
+    },
+    "license": "MIT",
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      }
+    }
+  }
+  
