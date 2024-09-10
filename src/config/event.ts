@@ -1,5 +1,5 @@
 import amqp, { Channel, Connection, ConsumeMessage } from 'amqplib';
-import { createEntityInDatabase, updateEntityInDatabase, deleteEntityFromDatabase } from '../rabbitMq/handleCRUDOperation';
+import { createEntityInDatabase, updateEntityInDatabase, deleteEntityFromDatabase } from '../rabbitMQ/handleCRUDOperation';
 
 /**
  * RabbitMQService class to manage interactions with RabbitMQ.

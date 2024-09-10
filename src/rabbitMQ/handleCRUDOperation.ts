@@ -38,9 +38,7 @@ async function updateEntityInDatabase(
  * @throws {Error} If the entity name or data is not provided, or if an entity with the same ID already exists.
  */
 async function createEntityInDatabase(
-  entityModel: typeof Model,
-  entityData: { id?: number; [key: string]: any }
-): Promise<Model> {
+entityModel: typeof Model, entityData: { id?: number;[key: string]: any; }, idField: any): Promise<Model> {
   if (!entityModel) {
     throw new Error('Entity model not provided.');
   }
@@ -79,7 +77,7 @@ async function deleteEntityFromDatabase(
   }
 
   try {
-    const entity = await entityModel.findByPk(entityId);
+    const entity = await (entityModel as ModelStatic<Model<{}, {}>>).findByPk(entityId);
     if (!entity) {
       throw new Error(`Entity not found with ID: ${entityId}`);
     }
