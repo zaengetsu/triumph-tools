@@ -54,7 +54,7 @@ const dbConfig: DBConfig = {
   name: process.env.DB_DATABASE || readSecret('auth_db_name', 'default_db'),
   schema: process.env.DB_SCHEMA || 'public',
 };
-
+console.log('DB Config :', dbConfig);
 
 const rabbitMQConfig: RabbitMQConfig = {
   user: process.env.RABBITMQ_USER || 'guest',
@@ -69,7 +69,7 @@ const rabbitMQConfig: RabbitMQConfig = {
   exchange: process.env.RABBITMQ_EXCHANGE || 'authentication.events',
 
 };
-
+console.log('RabbitMQ Config :', rabbitMQConfig);
 const appConfig: AppConfig = {
   serviceName: process.env.MICROSERVICE_NAME || 'authentication',
   serviceShortName: process.env.MICROSERVICE_QUADRANAME || 'auth',
