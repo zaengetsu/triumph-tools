@@ -11,6 +11,6 @@
     "types": ["node"],  // Inclure les types pour Node.js ici
     "outDir": "./dist"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["./index.ts","src/**/*.ts"],
   "exclude": ["node_modules"]
 }
