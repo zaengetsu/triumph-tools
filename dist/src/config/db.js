@@ -45,7 +45,7 @@ const db = new Sequelize(dbConfig.name, dbConfig.user, dbConfig.password, {
     dialect: 'postgres',
     host: dbConfig.host,
     port: dbConfig.port,
-    logging: console.log, // Remplace logger.info par console.log
+    logging: console.log,
     schema: dbConfig.schema,
     benchmark: true,
     retry: {
@@ -66,7 +66,7 @@ const connect = async () => {
         const retryDb = new Sequelize(dbConfig.name, dbConfig.user, dbConfig.password, {
             dialect: 'postgres',
             host: dbConfig.host,
-            port: 5432, // Tentative avec le port par défaut
+            port: 5432,
             schema: dbConfig.schema,
             benchmark: true,
             retry: {
