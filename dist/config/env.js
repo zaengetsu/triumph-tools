@@ -30,7 +30,7 @@ const rabbitMQConfig = {
     vhost: process.env.RABBITMQ_VHOST || '/',
     exchangeType: process.env.RABBITMQ_EXCHANGE_TYPE || 'topic',
     queue: process.env.RABBITMQ_QUEUE || 'mst_main_queue',
-    routingKey: process.env.RABBITMQ_ROUTING_KEY || 'services_data_backend_key',
+    routingKey: process.env.RABBITMQ_ROUTING_KEY || 'triumph_data_backend_key',
     url: process.env.RABBITMQ_URL || `amqp://${process.env.RABBITMQ_USER}:${process.env.RABBITMQ_PSWD}@${process.env.RABBITMQ_HOST}:${process.env.RABBITMQ_PORT}/`,
     exchange: process.env.RABBITMQ_EXCHANGE || 'authentication.events',
 };

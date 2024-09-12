@@ -4,6 +4,7 @@
     "description": "Librairie d'outils pour le projet Triumph",
     "main": "dist/index.js",
     "type": "module",
+    "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc",
         "test": "jest"
@@ -12,6 +13,7 @@
         "amqplib": "^0.10.4",
         "dotenv": "^10.0.0",
         "fs-extra": "^10.0.0",
+        "pg": "^8.12.0",
         "sequelize": "^6.37.3"
     },
     "devDependencies": {
@@ -31,7 +33,12 @@
             "require": "./dist/index.cjs"
         }
     },
-    "keywords": ["triumph", "tools", "nodejs", "typescript"],
+    "keywords": [
+        "triumph",
+        "tools",
+        "nodejs",
+        "typescript"
+    ],
     "author": "",
     "bugs": {
         "url": "https://github.com/<ton-utilisateur>/<nom-repo>/issues"
