@@ -21,7 +21,6 @@ const dbConfig = {
     name: process.env.DB_DATABASE || readSecret('auth_db_name', 'default_db'),
     schema: process.env.DB_SCHEMA || 'public',
 };
-console.log('DB Config :', dbConfig);
 const rabbitMQConfig = {
     user: process.env.RABBITMQ_USER || 'guest',
     password: process.env.RABBITMQ_PSWD || 'guest',
@@ -34,7 +33,6 @@ const rabbitMQConfig = {
     url: process.env.RABBITMQ_URL || `amqp://${process.env.RABBITMQ_USER}:${process.env.RABBITMQ_PSWD}@${process.env.RABBITMQ_HOST}:${process.env.RABBITMQ_PORT}/`,
     exchange: process.env.RABBITMQ_EXCHANGE || 'authentication.events',
 };
-console.log('RabbitMQ Config :', rabbitMQConfig);
 const appConfig = {
     serviceName: process.env.MICROSERVICE_NAME || 'authentication',
     serviceShortName: process.env.MICROSERVICE_QUADRANAME || 'auth',

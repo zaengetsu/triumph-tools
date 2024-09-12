@@ -1,4 +1,3 @@
-/// <reference types="node" />
 interface DBConfig {
     dialect: string;
     host: string;
@@ -33,6 +32,5 @@ declare const envConfig: {
     dbConfig: DBConfig;
     rabbitMQConfig: RabbitMQConfig;
     appConfig: AppConfig;
-    processEnv: NodeJS.ProcessEnv;
 };
 export { dbConfig, rabbitMQConfig, appConfig, envConfig };

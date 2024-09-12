@@ -94,8 +94,7 @@ const envConfig = {
   rabbitMQConfig,
   appConfig,
 };
-console.log("OK");
-console.log('DB Config :', dbConfig);
+
 console.log('Configuration environnement :', envConfig);
 
 export { dbConfig, rabbitMQConfig, appConfig, envConfig };
