@@ -1,7 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-console.log("OKOKOK");
-console.log("OKOKOK");
 const readSecret = (filename, defaultValue = '') => {
     try {
         const secretPath = process.env.MST_SECRETS_FOLDER || '../run_mst/secrets/';
