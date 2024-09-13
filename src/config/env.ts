@@ -34,44 +34,43 @@ interface AppConfig {
 }
 
 // Fonction pour lire les secrets à partir des fichiers
-const readSecret = (filename: string, defaultValue: string = ''): string => {
+const readSecret = (filePath: string, defaultValue: string = ''): string => {
   try {
-    const secretPath = process.env.MST_SECRETS_FOLDER || '../run_mst/secrets/';
-    const fullPath = path.resolve(`${secretPath}${filename}`);
-    console.log(`Lecture du fichier secret à partir du chemin : ${fullPath}`);
+    const fullPath = path.resolve(filePath);
 
     if (fs.existsSync(fullPath)) {
-      console.log(`Fichier trouvé : ${fullPath}`);
       return fs.readFileSync(fullPath, 'utf-8').trim();
     } else {
       console.log(`Fichier non trouvé : ${fullPath}, utilisation de la valeur par défaut.`);
       return defaultValue;
     }
   } catch (error) {
-    console.error(`Erreur lors de la lecture du fichier secret ${filename}: `, error);
+    console.error(`Erreur lors de la lecture du fichier secret ${filePath}: `, error);
     return defaultValue;
   }
 };
 
 // Récupérer la variable d'environnement ou lire un fichier de secret
-const getEnvOrSecret = (envVar: string, secretFile: string, defaultValue: string): string => {
-  const value = process.env[envVar];
-  if (value && value.startsWith('../')) {
-    return readSecret(secretFile, defaultValue);
+const getEnvOrSecret = (envVar: string, defaultValue: string): string => {
+  const secretFilePath = process.env[envVar];
+  if (secretFilePath && secretFilePath.startsWith('../')) {
+    return readSecret(secretFilePath, defaultValue);
   }
-  return value || defaultValue;
+  return secretFilePath || defaultValue;
 };
 
-// Configuration de la base de données
+
+// Configuration de la base de données pour un microservice (par exemple, userManagement)
 const dbConfig: DBConfig = {
   dialect: process.env.DB_DIALECT || 'postgres',
-  host: getEnvOrSecret('DB_HOST', 'auth_db_host', 'localhost'),
-  port: parseInt(process.env.DB_PORT || readSecret('auth_db_port', '5432'), 10),
-  user: getEnvOrSecret('DB_USERNAME', 'auth_db_username', 'default_user'),
-  password: getEnvOrSecret('DB_PASSWORD', 'auth_db_pswd', 'default_password'),
-  name: getEnvOrSecret('DB_DATABASE', 'auth_db_name', 'default_db'),
+  host: getEnvOrSecret('DB_HOST', 'localhost'),
+  port: parseInt(getEnvOrSecret('DB_PORT', '5432'), 10),
+  user: getEnvOrSecret('DB_USERNAME', 'default_user'),
+  password: getEnvOrSecret('DB_PASSWORD', 'default_password'),
+  name: getEnvOrSecret('DB_DATABASE', 'default_db'),
   schema: process.env.DB_SCHEMA || 'public',
 };
+
 
 // Configuration de RabbitMQ
 const rabbitMQConfig: RabbitMQConfig = {
