@@ -50,7 +50,7 @@ const rabbitMQConfig = {
 };
 // Configuration de l'application
 const appConfig = {
-    serviceName: process.env.MICROSERVICE_NAME || 'authentication',
+    serviceName: process.env.MST_SERVICE_NAME || 'authentication',
     serviceShortName: process.env.MICROSERVICE_QUADRANAME || 'auth',
     apiPort: parseInt(process.env.MST_PORT || '4001', 10),
     nodeTlsRejectUnauthorized: process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0' ? false : true,
