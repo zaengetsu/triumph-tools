@@ -1,6 +1,6 @@
 import { GraphQLClient, RequestDocument } from 'graphql-request';
 
-export class MSTClient {
+ class MSTClient {
   private client: GraphQLClient;
 
   /**
@@ -34,3 +34,5 @@ export class MSTClient {
     return this.client.request<T>(mutation, variables);
   }
 }
+
+export { MSTClient };
